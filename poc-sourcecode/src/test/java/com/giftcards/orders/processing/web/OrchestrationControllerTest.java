@@ -22,11 +22,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class OrderStateMachineControllerTest {
+public class OrchestrationControllerTest {
 
 
     @MockBean
-    OrchestrationService orderStateMachineService;
+    OrchestrationService orchestrationService;
 
     @Autowired
     OrchestrationController orderStateMachineController;
@@ -47,7 +47,7 @@ public class OrderStateMachineControllerTest {
         HttpEntity<GiftCardOrder> request = new HttpEntity<>(order);
         OrderStatus orderStatus = new OrderStatus(order.getId());
 
-        Mockito.when(orderStateMachineService.processOrder(order)).thenReturn(orderStatus);
+        Mockito.when(orchestrationService.processOrder(order)).thenReturn(orderStatus);
 
 
         ResponseEntity<OrderStatus> response =  testRestTemplate.postForEntity( new URL("http://localhost:" +  port+"/api/orders/orchestrationengine/").toString(),request,OrderStatus.class);
@@ -64,13 +64,12 @@ public class OrderStateMachineControllerTest {
         lineItem.setItemid("lineitem1");
         order.setLineItems(lineItems);
 
-        HttpEntity<GiftCardOrder> request = new HttpEntity<>(order);
         OrderStatus orderStatus = new OrderStatus(order.getId());
 
-        Mockito.when(orderStateMachineService.getOrderStatus(order.getId(),lineItem.getItemid())).thenReturn(orderStatus);
+        Mockito.when(orchestrationService.getOrderStatus(order.getId(),lineItem.getItemid())).thenReturn(orderStatus);
 
 
-        ResponseEntity<OrderStatus> response =  testRestTemplate.postForEntity( new URL("http://localhost:" +  port+"/api/orders/orchestrationengine/status/order1/lineitem1").toString(),request,OrderStatus.class);
+        ResponseEntity<OrderStatus> response =  testRestTemplate.getForEntity( new URL("http://localhost:" +  port+"/api/orders/orchestrationengine/status/order1/lineitem1").toString(),OrderStatus.class);
         assertEquals(200,response.getStatusCode().value());
         assertEquals(orderStatus,response.getBody());
     }

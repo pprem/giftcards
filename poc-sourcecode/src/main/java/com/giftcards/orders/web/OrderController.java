@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api")
-@Api(value = "Order Service Rest API", tags ={"Order Service REST APIs"} )
+@Api(value = "Order Service Rest API", tags ={"2. Order Service REST APIs"} )
 public class OrderController {
 
     @Autowired

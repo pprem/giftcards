@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 @RequestMapping("/api")
-@Api(value = "Content Partners Broker REST API", tags ={"Content Partners Broker REST API"} )
+@Api(value = "Content Partners Broker REST API", tags ={"4. Content Partners Broker REST APIs"} )
 public class CPBrokerController {
     @Autowired
     CPBrokerService cpBrokerService;

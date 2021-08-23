@@ -18,7 +18,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api")
-@Api(value = " Workflow Definition Service REST API ", tags ={"Workflow Definition Service REST API "} )
+@Api(value = " Workflow Definition Service REST API ", tags ={"6. Workflow Definition Service REST APIs "} )
 public class WorkflowDefinitionsController {
 
     @Autowired

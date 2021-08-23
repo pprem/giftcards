@@ -17,7 +17,7 @@ import java.net.URI;
 
 @Controller
 @RequestMapping("/api")
-@Api(value = "Orchestration REST API", tags ={"Orchestration REST API"} )
+@Api(value = "Orchestration REST API", tags ={"3. Orchestration REST APIs"} )
 public class OrchestrationController {
     @Autowired
     OrchestrationService orderStateMachineService;
@@ -39,7 +39,7 @@ public class OrchestrationController {
     }
 
     @ResponseBody
-    @PostMapping("/orders/orchestrationengine/status/{orderid}/{lineitemid}")
+    @GetMapping("/orders/orchestrationengine/status/{orderid}/{lineitemid}")
     @ApiOperation(value = "Retrieve the status for given order and/or lineitem under the order",
             notes = "Provide the order id and lineitemid to retrieve the order status",
             response = OrderStatus.class)

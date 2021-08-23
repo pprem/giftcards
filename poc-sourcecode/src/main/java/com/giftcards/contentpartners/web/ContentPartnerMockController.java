@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/api")
-@Api(value = "Content Partners Mock REST API ", tags ={"Content Partners Mock REST API "} )
+@Api(value = "Content Partners Mock REST API ", tags ={"5. Content Partners Mock REST APIs "})
 public class ContentPartnerMockController {
 
     @ResponseBody

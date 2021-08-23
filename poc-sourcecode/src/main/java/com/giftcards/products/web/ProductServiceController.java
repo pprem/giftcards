@@ -18,7 +18,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api")
-@Api(value = "Product Service REST API", tags ={"Product Service REST APIs"} )
+@Api(value = "Product Service REST API", tags ={"1. Product Service REST APIs"} )
 public class ProductServiceController {
 
 
